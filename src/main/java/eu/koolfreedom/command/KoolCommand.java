@@ -8,7 +8,6 @@ import lombok.Getter;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.minimessage.tag.resolver.Placeholder;
 import net.kyori.adventure.text.minimessage.tag.resolver.TagResolver;
-import org.bukkit.Bukkit;
 import org.bukkit.Server;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
@@ -21,7 +20,7 @@ import java.util.*;
 
 /**
  * <h1>KoolCommand</h1>
- * <p>The foundation of all commands in KoolChatFilter. Commands are currently registered in the plugin's onEnable method
+ * <p>The foundation of all commands in KoolAnarchyMod. Commands are currently registered in the plugin's onEnable method
  * 	through the {@link CommandLoader}.</p>
  */
 public abstract class KoolCommand extends Command implements PluginIdentifiableCommand
