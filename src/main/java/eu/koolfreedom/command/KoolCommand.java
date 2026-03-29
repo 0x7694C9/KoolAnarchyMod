@@ -32,6 +32,7 @@ public abstract class KoolCommand extends Command implements PluginIdentifiableC
     protected final Server server = KoolAnarchyMod.getInstance().getServer();
 
     protected final String YOU_ARE_OP = "<yellow>You are now OP.";
+    protected final String YOU_ARE_NOT_OP = "<yellow>You are no longer OP";
 
     /**
      * Constructor to initialize commands. Commands created this way <b>must</b> be annotated with the

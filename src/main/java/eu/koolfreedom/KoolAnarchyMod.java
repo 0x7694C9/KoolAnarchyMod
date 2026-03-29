@@ -1,7 +1,7 @@
 package eu.koolfreedom;
 
 import eu.koolfreedom.command.CommandLoader;
-import eu.koolfreedom.command.impl.GTFOCommand;
+import eu.koolfreedom.command.impl.*;
 import eu.koolfreedom.listener.PlayerListener;
 import eu.koolfreedom.util.FLog;
 import org.bukkit.Particle;
@@ -36,7 +36,7 @@ public class KoolAnarchyMod extends JavaPlugin
         saveDefaultConfig();
 
         // Register commands
-        commandLoader = new CommandLoader(GTFOCommand.class);
+        commandLoader = new CommandLoader(ClearChatCommand.class);
         commandLoader.loadCommands();
         FLog.info("Loaded {} commands,", commandLoader.getKoolCommands().size());
 
