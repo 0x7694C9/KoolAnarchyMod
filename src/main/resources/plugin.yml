@@ -1,0 +1,6 @@
+name: KoolAnarchyMod
+version: 3.0
+main: eu.koolfreedom.KoolAnarchyMod
+api-version: 1.21
+author: gamingto12
+description: A plugin for the KoolAnarchy Minecraft server.
