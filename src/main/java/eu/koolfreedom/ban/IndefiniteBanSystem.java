@@ -4,6 +4,7 @@ import eu.koolfreedom.util.FLog;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.minimessage.MiniMessage;
 import net.kyori.adventure.text.serializer.legacy.LegacyComponentSerializer;
+import org.bukkit.OfflinePlayer;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.Player;
 import eu.koolfreedom.KoolAnarchyMod;
@@ -211,6 +212,37 @@ public class IndefiniteBanSystem
         if (!ips.contains(ip)) {
             ips.add(ip);
             config.set(buildPath(name, IPS_KEY), ips);
+        }
+
+        config.set(buildPath(name, REASON_KEY), reason != null ? reason : DEFAULT_REASON);
+        save();
+    }
+
+    /**
+     * Bans an OfflinePlayer by name, UUID, and IP address.
+     *
+     * @param player the player to ban
+     * @param reason the ban reason (default hardcoded reason will be the default)
+     * @throws IllegalArgumentException if IP is null
+     */
+    public void banOfflinePlayer(OfflinePlayer player, String reason) {
+        Objects.requireNonNull(player, "Player cannot be null");
+
+        String name = player.getName().toLowerCase();
+        String uuid = player.getUniqueId().toString();
+
+        config.set(buildPath(name, UUID_KEY), uuid);
+
+        // Only store IP if the player is currently online
+        if (player.isOnline() && player.getPlayer() != null) {
+            String ip = getPlayerIp(player.getPlayer());
+            if (ip != null) {
+                List<String> ips = new java.util.ArrayList<>(getStoredIps(name));
+                if (!ips.contains(ip)) {
+                    ips.add(ip);
+                    config.set(buildPath(name, IPS_KEY), ips);
+                }
+            }
         }
 
         config.set(buildPath(name, REASON_KEY), reason != null ? reason : DEFAULT_REASON);

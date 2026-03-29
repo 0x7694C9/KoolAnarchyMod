@@ -35,6 +35,9 @@ public class KoolAnarchyMod extends JavaPlugin
         getConfig().options().copyDefaults(true);
         saveDefaultConfig();
 
+        banSystem = IndefiniteBanSystem.get();
+        banSystem.reload();
+
         // Register commands
         commandLoader = new CommandLoader(ClearChatCommand.class);
         commandLoader.loadCommands();
@@ -42,9 +45,7 @@ public class KoolAnarchyMod extends JavaPlugin
 
         playerListener = new PlayerListener();
 
-        IndefiniteBanSystem.get().reload();
-
-        getSLF4JLogger().info("KoolAnarchyMod has been enabled.");
+        FLog.info("KoolAnarchyMod has been enabled.");
     }
 
     @Override

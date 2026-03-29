@@ -33,6 +33,7 @@ public abstract class KoolCommand extends Command implements PluginIdentifiableC
 
     protected final String YOU_ARE_OP = "<yellow>You are now OP.";
     protected final String YOU_ARE_NOT_OP = "<yellow>You are no longer OP";
+    protected final String playerNotFound = "<red>Could not find specified player";
 
     /**
      * Constructor to initialize commands. Commands created this way <b>must</b> be annotated with the

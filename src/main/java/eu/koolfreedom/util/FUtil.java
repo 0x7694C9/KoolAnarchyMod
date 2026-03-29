@@ -1,6 +1,7 @@
 package eu.koolfreedom.util;
 
 import lombok.Getter;
+import lombok.NonNull;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.JoinConfiguration;
 import net.kyori.adventure.text.TextComponent;
@@ -132,5 +133,15 @@ public class FUtil
         }
 
         return RANDOM.nextInt(min, max);
+    }
+
+    /**
+     * Get a player's IP address.
+     * @param player    The {@link Player} in question.
+     * @return          The player's IP address.
+     */
+    public static String getIp(@NonNull Player player)
+    {
+        return Objects.requireNonNull(player.getAddress()).getAddress().getHostAddress().trim();
     }
 }
