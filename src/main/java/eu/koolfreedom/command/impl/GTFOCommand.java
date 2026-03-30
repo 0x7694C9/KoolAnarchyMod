@@ -22,15 +22,15 @@ public class GTFOCommand extends KoolCommand
     @Override
     public boolean run(CommandSender sender, Player playerSender, Command cmd, String s, String[] args)
     {
-        if (args.length == 0)
-        {
-            return false;
-        }
-
         if (!KoolAnarchyMod.isAllowed(sender))
         {
             msg(sender, "<red>You do not have access to execute this command");
             return true;
+        }
+
+        if (args.length == 0)
+        {
+            return false;
         }
 
         OfflinePlayer target = Bukkit.getOfflinePlayer(args[0]);

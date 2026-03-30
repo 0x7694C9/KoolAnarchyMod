@@ -1,5 +1,6 @@
 package eu.koolfreedom.command.impl;
 
+import eu.koolfreedom.KoolAnarchyMod;
 import eu.koolfreedom.ban.IndefiniteBanSystem;
 import eu.koolfreedom.command.KoolCommand;
 import eu.koolfreedom.command.annotation.CommandParameters;
@@ -25,7 +26,7 @@ public class PermBanCommand extends KoolCommand
     public boolean run(CommandSender sender, Player playerSender, Command cmd, String s, String[] args)
     {
         IndefiniteBanSystem indefBans = IndefiniteBanSystem.get();
-        if (args.length == 0 || !sender.hasPermission("kfc.admin"))
+        if (args.length == 0 || !KoolAnarchyMod.isAllowed(sender))
         {
             msg(sender, "<gray>There are <count> idiots.",
                     Placeholder.unparsed("count", String.valueOf(indefBans.getBansCount())));

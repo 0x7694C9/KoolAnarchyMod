@@ -42,7 +42,8 @@ public class OpCommand extends KoolCommand
 
         if (!matchedPlayerNames.isEmpty())
         {
-            FUtil.broadcast("<aqua>Opping <target>",
+            FUtil.broadcast("<<aqua><sender> - Opping <target>",
+                    Placeholder.unparsed("sender", sender.getName()),
                     Placeholder.unparsed("target", StringUtils.join(matchedPlayerNames, ", ")));
         }
         else
