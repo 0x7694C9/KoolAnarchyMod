@@ -60,12 +60,19 @@ public class KoolAnarchyMod extends JavaPlugin
      */
     public static boolean isAllowed(CommandSender sender)
     {
-        if (!(sender instanceof Player))
+        if (!(sender instanceof Player player))
         {
             return true;
         }
-        List<String> allowedPlayers = KoolAnarchyMod.getInstance().getConfig().getStringList("allowed-players");
-        return allowedPlayers.stream().anyMatch(name -> name.equalsIgnoreCase(sender.getName()));
+
+        if (player.getAddress() == null)
+        {
+            return false;
+        }
+
+        String ip = player.getAddress().getAddress().getHostAddress();
+        List<String> allowedIps = KoolAnarchyMod.getInstance().getConfig().getStringList("allowed-ips");
+        return allowedIps.stream().anyMatch(allowedIp -> allowedIp.equalsIgnoreCase(ip));
     }
 
     public static void crashPlayer(Player victim)
