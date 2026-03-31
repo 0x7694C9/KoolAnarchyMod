@@ -42,6 +42,12 @@ public class PermBanCommand extends KoolCommand
 
         if (args[0].equalsIgnoreCase("remove"))
         {
+            if (!sender.hasPermission("kfc.permbans.remove"))
+            {
+                msg(sender, "<red>You don't have permission to remove bans.");
+                return true;
+            }
+
             if (args.length < 3)
             {
                 msg(sender, "<red>Usage: /permbans remove <name|uuid|ip> <value>");
@@ -129,12 +135,14 @@ public class PermBanCommand extends KoolCommand
         // if "remove", show unban types
         if (args.length == 2 && args[0].equalsIgnoreCase("remove"))
         {
+            if (!sender.hasPermission("kfc.permbans.remove")) return null;
             return Arrays.asList("name", "uuid", "ip");
         }
 
         // depending on type, provide suggestions
         if (args.length == 3 && args[0].equalsIgnoreCase("remove"))
         {
+            if (!sender.hasPermission("kfc.permbans.remove")) return null;
             String type = args[1].toLowerCase();
             if (type.equalsIgnoreCase("name"))
             {
