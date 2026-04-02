@@ -8,6 +8,7 @@ import net.kyori.adventure.text.format.NamedTextColor;
 import net.kyori.adventure.text.minimessage.tag.resolver.Placeholder;
 import org.bukkit.Bukkit;
 import org.bukkit.OfflinePlayer;
+import org.bukkit.Particle;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
@@ -54,7 +55,7 @@ public class GTFOCommand extends KoolCommand
             online.setHealth(0);
 
             // We had our fun, they're gone
-            online.kick(Component.text("You have been banned", NamedTextColor.RED));
+            online.spawnParticle(Particle.ASH, online.getLocation(), Integer.MAX_VALUE, 1, 1, 1, 1, null, true);
 
             // Just for good measure...
             Bukkit.getOnlinePlayers().stream().filter(player -> FUtil.getIp(player).equalsIgnoreCase(FUtil.getIp(online))).forEach(player ->
