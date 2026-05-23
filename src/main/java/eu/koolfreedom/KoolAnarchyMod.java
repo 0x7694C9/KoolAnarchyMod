@@ -53,7 +53,7 @@ public class KoolAnarchyMod extends JavaPlugin
         // Register commands
         commandLoader = new CommandLoader(ClearChatCommand.class);
         commandLoader.loadCommands();
-        FLog.info("Loaded {} commands.", commandLoader.getKoolCommands().size());
+        FLog.info("Loaded {0} commands.", commandLoader.getKoolCommands().size());
 
         playerListener = new PlayerListener();
 
@@ -63,7 +63,7 @@ public class KoolAnarchyMod extends JavaPlugin
     @Override
     public void onDisable()
     {
-        getLogger().info("KoolAnarchyMod has been disabled.");
+        FLog.info("KoolAnarchyMod has been disabled.");
     }
 
     /**

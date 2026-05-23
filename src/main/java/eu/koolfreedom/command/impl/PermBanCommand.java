@@ -90,7 +90,7 @@ public class PermBanCommand extends KoolCommand
                     msg(sender, "<green>Banned <player> for <duration>.",
                             Placeholder.unparsed("player", targetName),
                             Placeholder.unparsed("duration", durationDisplay));
-                    FLog.info("{} banned {} for {} (reason: {})",
+                    FLog.info("{0} banned {1} for {2} (reason: {3})",
                             sender.getName(), targetName, durationDisplay,
                             reason != null ? reason : IndefiniteBanSystem.DEFAULT_REASON);
                 }
@@ -134,7 +134,7 @@ public class PermBanCommand extends KoolCommand
                         msg(sender, "<green>Unbanned by <type>: <value>",
                                 Placeholder.unparsed("type", type),
                                 Placeholder.unparsed("value", value));
-                        FLog.debug("Cleared {} ({}) from permbans.yml", value, type);
+                        FLog.debug("Cleared {0} ({1}) from permbans.yml", value, type);
                     }
                     else if (!type.equals("invalid"))
                     {
