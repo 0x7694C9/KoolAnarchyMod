@@ -67,7 +67,7 @@ public class IndefiniteBanSystem
         try
         {
             config.load(file);
-            FLog.info("Loaded {} permban entries", getBansCount());
+            FLog.info("Loaded {0} permban entries", getBansCount());
         } catch (Exception e)
         {
             FLog.error("Failed to reload permbans file!", e);
@@ -185,7 +185,7 @@ public class IndefiniteBanSystem
             // Auto-remove expired ban
             config.set(name.toLowerCase(), null);
             save();
-            FLog.info("Auto-expired ban for {}", name);
+            FLog.info("Auto-expired ban for {0}", name);
             return true;
         }
         return false;
@@ -204,7 +204,7 @@ public class IndefiniteBanSystem
 
         if (removed > 0)
         {
-            FLog.info("Pruned {} expired ban entr{}.", removed, removed == 1 ? "y" : "ies");
+            FLog.info("Pruned {0} expired ban entr{1}.", removed, removed == 1 ? "y" : "ies");
         }
     }
 
@@ -233,7 +233,7 @@ public class IndefiniteBanSystem
         try {
             return player.getAddress() != null ? player.getAddress().getAddress().getHostAddress() : null;
         } catch (Exception e) {
-            FLog.warning("Failed to get IP for player {}", player.getName());
+            FLog.warning("Failed to get IP for player {0}", player.getName());
             return null;
         }
     }
